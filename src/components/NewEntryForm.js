@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Checkbox, Form, Segment } from 'semantic-ui-react'
 import { Context } from '../Context'
 import ButtonSaveCancel from './ButtonSaveCancel'
 
@@ -27,6 +27,16 @@ export default function NewEntryForm() {
                     iconPosition="left"
                 />
             </Form.Group>
+
+            <Segment compact>
+                <Checkbox
+                    toggle
+                    label="Expense"
+                    checked={isExpense}
+                    onChange={() => setIsExpense(prev => !prev)}
+                />
+            </Segment>
+
             <ButtonSaveCancel />
         </Form>
     )
