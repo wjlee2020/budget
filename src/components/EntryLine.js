@@ -26,7 +26,7 @@ export default function EntryLine({ entry: { id, description, value, isExpense }
                                 name="edit"
                                 style={{ cursor: 'pointer' }}
                                 bordered
-                                onClick={() => setIsOpen(true)}
+                                onClick={() => setIsOpen(prev => !prev)}
                             />
                             <Icon
                                 name="trash"
@@ -37,7 +37,7 @@ export default function EntryLine({ entry: { id, description, value, isExpense }
                     </Grid.Row>
                 </Grid>
             </Segment>
-            <ModalEdit isOpen={isOpen} />
+            <ModalEdit isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     )
 }
