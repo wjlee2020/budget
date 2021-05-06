@@ -1,13 +1,9 @@
-import {
-  Container,
-  Grid,
-  Icon,
-  Segment
-} from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import MainHeader from './components/MainHeader'
 import NewEntryForm from './components/NewEntryForm'
 import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances'
+import EntryLine from './components/EntryLine'
 
 function App() {
   return (
@@ -19,46 +15,12 @@ function App() {
       <DisplayBalances />
 
       <MainHeader title="History" type="h3" />
-      <Segment color="red">
-        <Grid columns={3} textAlign="right">
-          <Grid.Row>
-            <Grid.Column textAlign="left" width={10}>Banana</Grid.Column>
-            <Grid.Column textAlign="right" width={3}>250</Grid.Column>
-            <Grid.Column width={3}>
-              <Icon name="edit" bordered />
-              <Icon name="trash" bordered />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
 
-      <Segment color="red">
-        <Grid columns={3} textAlign="right">
-          <Grid.Row>
-            <Grid.Column textAlign="left" width={10}>Carrots</Grid.Column>
-            <Grid.Column textAlign="right" width={3}>250</Grid.Column>
-            <Grid.Column width={3}>
-              <Icon name="edit" bordered />
-              <Icon name="trash" bordered />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
+      <EntryLine description="bananas" value="250" isExpense />
+      <EntryLine description="carrots" value="250" isExpense />
+      <EntryLine description="funding" value="250" />
+      <EntryLine description="funding" value="200" />
 
-      <Segment color="green">
-        <Grid columns={3} textAlign="right">
-          <Grid.Row>
-            <Grid.Column textAlign="left" width={10}>funding</Grid.Column>
-            <Grid.Column textAlign="right" width={3}>250</Grid.Column>
-            <Grid.Column width={3}>
-              <Icon name="edit" bordered />
-              <Icon name="trash" bordered />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
-
-      {/* <Header as="h3">Add new transaction</Header> */}
       <MainHeader type="h3" title="Add New Transaction" />
       <NewEntryForm />
 
