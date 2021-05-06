@@ -1,19 +1,17 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Container } from 'semantic-ui-react';
 import MainHeader from './components/MainHeader'
 import NewEntryForm from './components/NewEntryForm'
 import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances'
 import EntryLine from './components/EntryLine'
-import { initialEntries } from './seed/initialEntries';
+import { Context } from './Context';
 
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
-  console.log(entries)
-
+  const { entries } = useContext(Context)
   const entryElement = entries.map((entry) => (
     <EntryLine key={entry.id} entry={entry} />
-  ))
+  ));
 
   return (
     <Container>
@@ -26,6 +24,7 @@ function App() {
       <MainHeader title="History" type="h3" />
 
       {entryElement}
+
       <MainHeader type="h3" title="Add New Transaction" />
       <NewEntryForm />
 

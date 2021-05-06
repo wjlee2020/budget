@@ -1,19 +1,35 @@
+import { useContext } from 'react';
 import { Segment, Grid, Icon } from 'semantic-ui-react'
+import { Context } from '../Context';
 
-export default function EntryLine({ entry }) {
+export default function EntryLine({ entry: { id, description, value, isExpense } }) {
+    const { entries, setEntries } = useContext(Context);
+
+    const deleteEntry = (id) => {
+        const res = entries.filter(entry => entry.id !== id);
+        setEntries(res);
+    }
     return (
-        <Segment color={entry.isExpense ? "red" : "green"}>
+        <Segment color={isExpense ? "red" : "green"}>
             <Grid columns={3} textAlign="right">
                 <Grid.Row>
                     <Grid.Column textAlign="left" width={10}>
-                        {entry.description}
+                        {description}
                     </Grid.Column>
                     <Grid.Column textAlign="right" width={3}>
-                        {entry.value}
+                        {value}
                     </Grid.Column>
                     <Grid.Column width={3}>
-                        <Icon name="edit" bordered />
-                        <Icon name="trash" bordered />
+                        <Icon
+                            name="edit"
+                            style={{ cursor: 'pointer' }}
+                            bordered
+                        />
+                        <Icon
+                            name="trash"
+                            style={{ cursor: 'pointer' }}
+                            bordered onClick={() => deleteEntry(id)}
+                        />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
