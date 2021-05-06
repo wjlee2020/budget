@@ -1,15 +1,29 @@
 import { useContext } from 'react';
-import { Segment, Grid, Icon } from 'semantic-ui-react'
+import { Segment, Grid, Icon, StepDescription } from 'semantic-ui-react'
 import { Context } from '../Context';
 import ModalEdit from './ModalEdit';
 
 export default function EntryLine({ entry: { id, description, value, isExpense } }) {
-    const { entries, setEntries, isOpen, setIsOpen } = useContext(Context);
+    const { entries, setEntries, isOpen, setIsOpen, setDescription, setValue, setIsExpense } = useContext(Context);
 
     const deleteEntry = (id) => {
         const res = entries.filter(entry => entry.id !== id);
         setEntries(res);
     }
+
+
+    const editEntry = id => {
+        console.log(id)
+        if (id) {
+            const index = entries.findIndex(entry => entry.id === id)
+            const entry = entries[index]
+            setDescription(entry.description)
+            setValue(entry.value)
+            setIsExpense(entry.isExpense)
+            setIsOpen(prev => !prev)
+        }
+    }
+
     return (
         <>
             <Segment color={isExpense ? "red" : "green"}>
@@ -26,7 +40,7 @@ export default function EntryLine({ entry: { id, description, value, isExpense }
                                 name="edit"
                                 style={{ cursor: 'pointer' }}
                                 bordered
-                                onClick={() => setIsOpen(prev => !prev)}
+                                onClick={() => editEntry(id)}
                             />
                             <Icon
                                 name="trash"

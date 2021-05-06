@@ -3,7 +3,14 @@ import { Context } from '../Context'
 import { useContext } from 'react'
 
 export default function EntryForm() {
-    const { description, value, setDescription, setValue, isExpense, setIsExpense } = useContext(Context)
+    const {
+        description,
+        value,
+        setDescription,
+        setValue,
+        isExpense,
+        setIsExpense } = useContext(Context)
+
     return (
         <>
             <Form.Group>
