@@ -9,6 +9,7 @@ function ContextProvider({ children }) {
     const [value, setValue] = useState('')
     const [isExpense, setIsExpense] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
+    const [entryId, setEntryId] = useState()
 
     return (
         <Context.Provider value={{
@@ -21,7 +22,9 @@ function ContextProvider({ children }) {
             isExpense,
             setIsExpense,
             isOpen,
-            setIsOpen
+            setIsOpen,
+            entryId,
+            setEntryId
         }}>
             {children}
         </Context.Provider>
