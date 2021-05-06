@@ -2,6 +2,7 @@ import { useEffect, useContext } from 'react'
 import { Context } from '../Context'
 import { Button, Modal } from "semantic-ui-react";
 import EntryForm from "./EntryForm";
+import NewEntryForm from './NewEntryForm';
 
 export default function ModalEdit({ isOpen, setIsOpen }) {
     const {
@@ -32,7 +33,7 @@ export default function ModalEdit({ isOpen, setIsOpen }) {
         <Modal open={isOpen}>
             <Modal.Header>Edit Entry</Modal.Header>
             <Modal.Content>
-                <EntryForm />
+                <NewEntryForm />
             </Modal.Content>
             <Modal.Actions>
                 <Button onClick={() => setIsOpen(prev => !prev)}>Close</Button>

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { Segment, Grid, Icon, StepDescription } from 'semantic-ui-react'
+import { Segment, Grid, Icon } from 'semantic-ui-react'
 import { Context } from '../Context';
 import ModalEdit from './ModalEdit';
 
