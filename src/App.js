@@ -1,11 +1,20 @@
+import { useState } from 'react';
 import { Container } from 'semantic-ui-react';
 import MainHeader from './components/MainHeader'
 import NewEntryForm from './components/NewEntryForm'
 import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances'
 import EntryLine from './components/EntryLine'
+import { initialEntries } from './seed/initialEntries';
 
 function App() {
+  const [entries, setEntries] = useState(initialEntries);
+  console.log(entries)
+
+  const entryElement = entries.map((entry) => (
+    <EntryLine key={entry.id} entry={entry} />
+  ))
+
   return (
     <Container>
       <MainHeader title="Budget" />
@@ -16,11 +25,7 @@ function App() {
 
       <MainHeader title="History" type="h3" />
 
-      <EntryLine description="bananas" value="250" isExpense />
-      <EntryLine description="carrots" value="250" isExpense />
-      <EntryLine description="funding" value="250" />
-      <EntryLine description="funding" value="200" />
-
+      {entryElement}
       <MainHeader type="h3" title="Add New Transaction" />
       <NewEntryForm />
 

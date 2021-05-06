@@ -1,15 +1,15 @@
 import { Segment, Grid, Icon } from 'semantic-ui-react'
 
-export default function EntryLine({ description, value, isExpense = false }) {
+export default function EntryLine({ entry }) {
     return (
-        <Segment color={isExpense ? "red" : "green"}>
+        <Segment color={entry.isExpense ? "red" : "green"}>
             <Grid columns={3} textAlign="right">
                 <Grid.Row>
                     <Grid.Column textAlign="left" width={10}>
-                        {description}
+                        {entry.description}
                     </Grid.Column>
                     <Grid.Column textAlign="right" width={3}>
-                        {value}
+                        {entry.value}
                     </Grid.Column>
                     <Grid.Column width={3}>
                         <Icon name="edit" bordered />
