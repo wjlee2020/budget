@@ -4,7 +4,7 @@ import useEntryDetails from '../hooks/useEntryDetails';
 import { closeModal } from '../redux/actions/modals.actions';
 import EntryForm from "./EntryForm";
 
-export default function ModalEdit({ isOpen, description, value, isExpense, }) {
+export default function ModalEdit({ isOpen, description, value, isExpense, id }) {
 
     const dispatch = useDispatch();
     const entryUpdate = useEntryDetails(description, value, isExpense);
@@ -25,7 +25,7 @@ export default function ModalEdit({ isOpen, description, value, isExpense, }) {
                 <Button onClick={() => dispatch(closeModal())}>Close</Button>
                 <Button
                     primary
-                    onClick={() => dispatch(closeModal())}
+                    onClick={() => entryUpdate.editEntry(id)}
                 >Save
                 </Button>
             </Modal.Actions>

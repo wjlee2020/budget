@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addEntryRedux } from "../redux/actions/entries.actions";
+import { addEntryRedux, editEntryRedux } from "../redux/actions/entries.actions";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function useEntryDetails(desc = "", val = "", isExp = true) {
@@ -25,6 +25,19 @@ export default function useEntryDetails(desc = "", val = "", isExp = true) {
         setValue('');
         setIsExpense(true);
     }
+
+    function editEntry(id) {
+        dispatch(editEntryRedux(
+            id,
+            {
+                id,
+                description,
+                value,
+                isExpense
+            }
+        ))
+    }
+
     return {
         description,
         setDescription,
@@ -32,6 +45,7 @@ export default function useEntryDetails(desc = "", val = "", isExp = true) {
         setValue,
         isExpense,
         setIsExpense,
-        addEntry
+        addEntry,
+        editEntry
     };
 }
