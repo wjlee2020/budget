@@ -1,6 +1,6 @@
 import { Button } from "semantic-ui-react";
 
-export default function ButtonSaveCancel({ addEntry, description, value, isExpense }) {
+export default function ButtonSaveCancel({ addEntry }) {
 
     return (
         <Button.Group style={{ margin: 20 }}>
@@ -8,7 +8,7 @@ export default function ButtonSaveCancel({ addEntry, description, value, isExpen
             <Button.Or />
             <Button
                 primary
-                onClick={() => addEntry(description, value, isExpense)}
+                onClick={() => addEntry()}
             >Ok
             </Button>
         </Button.Group>

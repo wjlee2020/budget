@@ -21,12 +21,7 @@ export default function NewEntryForm({
                 isExpense={isExpense}
                 setIsExpense={setIsExpense}
             />
-            <ButtonSaveCancel
-                addEntry={addEntry}
-                description={description}
-                value={value}
-                isExpense={isExpense}
-            />
+            <ButtonSaveCancel addEntry={addEntry} />
         </Form>
     )
 }

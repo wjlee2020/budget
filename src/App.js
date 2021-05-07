@@ -15,6 +15,9 @@ function App() {
   const [isExpense, setIsExpense] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [entryId, setEntryId] = useState(null);
+  const [total, setTotal] = useState(0);
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
 
   useEffect(() => {
     if (!isOpen && entryId) {
@@ -24,17 +27,42 @@ function App() {
       newEntries[index].value = value;
       newEntries[index].isExpense = isExpense;
       setEntries(newEntries);
+      resentEntry();
     }
   }, [isOpen])
+
+  useEffect(() => {
+    let totalIncome = 0;
+    let totalExpense = 0;
+    entries.map(entry => {
+      if (entry.isExpense) {
+        totalExpense += entry.value;
+        setExpense(totalExpense);
+      } else {
+        totalIncome += entry.value;
+        setIncome(totalIncome);
+      }
+    });
+    let total = totalIncome - totalExpense;
+    setTotal(total)
+    console.log(`total incomes: ${totalIncome} and total expenses: ${totalExpense}`);
+  }, [entries])
+
+  function resentEntry() {
+    setDescription('');
+    setValue('');
+    setIsExpense(true);
+  }
 
   function deleteEntry(id) {
     const res = entries.filter(entry => entry.id !== id);
     setEntries(res);
   }
 
-  function addEntry(description, value, isExpense) {
+  function addEntry() {
     const res = entries.concat({ id: initialEntries.length + 1, description, value, isExpense });
     setEntries(res);
+    resentEntry();
   }
 
   function editEntry(id) {
@@ -54,9 +82,9 @@ function App() {
     <Container>
       <MainHeader title="Budget" />
 
-      <DisplayBalance title="Your Balance" value="2,500" size="small" />
+      <DisplayBalance title="Your Balance" value={total} size="small" />
 
-      <DisplayBalances />
+      <DisplayBalances income={income} expense={expense} />
 
       <MainHeader title="History" type="h3" />
 

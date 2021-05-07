@@ -4,9 +4,9 @@ import EntryLine from "./EntryLine";
 export default function EntryLines({ entries, deleteEntry, setIsOpen, editEntry }) {
     return (
         <Container>
-            {entries.map((entry) => (
+            {entries.map((entry, index) => (
                 <EntryLine
-                    key={entry.id}
+                    key={index}
                     {...entry}
                     deleteEntry={deleteEntry}
                     setIsOpen={setIsOpen}
