@@ -1,15 +1,12 @@
 import { Form, Segment, Checkbox } from 'semantic-ui-react'
-import { Context } from '../Context'
-import { useContext } from 'react'
 
-export default function EntryForm() {
-    const {
-        description,
-        value,
-        setDescription,
-        setValue,
-        isExpense,
-        setIsExpense } = useContext(Context)
+export default function EntryForm({
+    description,
+    setDescription,
+    value,
+    setValue,
+    isExpense,
+    setIsExpense }) {
 
     return (
         <>

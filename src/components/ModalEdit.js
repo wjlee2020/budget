@@ -1,45 +1,33 @@
-import { useEffect, useContext } from 'react'
-import { Context } from '../Context'
 import { Button, Modal } from "semantic-ui-react";
 import EntryForm from "./EntryForm";
-import NewEntryForm from './NewEntryForm';
 
-export default function ModalEdit({ isOpen, setIsOpen }) {
-    const {
-        entries,
-        setEntries,
-        description,
-        setDescription,
-        value,
-        setValue,
-        isExpense,
-        setIsExpense,
-        entryId,
-        setEntryId
-    } = useContext(Context);
-
-    useEffect(() => {
-        if (!isOpen && entryId) {
-            const index = entries.findIndex(entry => entry.id === entry.id)
-            const newEntries = [...entries]
-            newEntries[index].description = description
-            newEntries[index].value = value
-            newEntries[index].isExpense = isExpense
-            setEntries(newEntries)
-        }
-    }, [isOpen])
+export default function ModalEdit({
+    isOpen,
+    setIsOpen,
+    description,
+    setDescription,
+    value,
+    setValue,
+    isExpense,
+    setIsExpense }) {
 
     return (
         <Modal open={isOpen}>
             <Modal.Header>Edit Entry</Modal.Header>
             <Modal.Content>
-                <NewEntryForm />
+                <EntryForm
+                    description={description}
+                    setDescription={setDescription}
+                    value={value}
+                    setValue={setValue}
+                    isExpense={isExpense}
+                    setIsExpense={setIsExpense} />
             </Modal.Content>
             <Modal.Actions>
-                <Button onClick={() => setIsOpen(prev => !prev)}>Close</Button>
+                <Button onClick={() => setIsOpen(false)}>Close</Button>
                 <Button
                     primary
-                    onClick={() => setIsOpen(prev => !prev)}
+                    onClick={() => setIsOpen(false)}
                 >Save
                 </Button>
             </Modal.Actions>

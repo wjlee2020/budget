@@ -1,19 +1,7 @@
-import { useContext } from "react";
 import { Button } from "semantic-ui-react";
-import { Context } from "../Context";
 
-export default function ButtonSaveCancel() {
-    const { description, value, setEntries, entries, isExpense } = useContext(Context)
+export default function ButtonSaveCancel({ addEntry, description, value, isExpense }) {
 
-    const addEntry = (description, value, isExpense) => {
-        const res = entries.concat({
-            id: entries.length + 1,
-            description,
-            value,
-            isExpense
-        })
-        setEntries(res)
-    }
     return (
         <Button.Group style={{ margin: 20 }}>
             <Button>Cancel</Button>
