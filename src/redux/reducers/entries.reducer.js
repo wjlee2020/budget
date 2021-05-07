@@ -10,6 +10,12 @@ export default function entriesReducer(state = initialEntries, action) {
             const newEntries = state.filter(entry => entry.id !== action.payload)
             return newEntries
         }
+        case "EDIT_ENTRY": {
+            const newEntries = [...state];
+            const index = newEntries.findIndex(entry => entry.id === action.payload.id);
+            newEntries[index] = { ...action.payload.entry };
+            return newEntries;
+        }
         default:
             return state;
     }

@@ -1,4 +1,6 @@
+import { useDispatch } from 'react-redux';
 import { Button, Modal } from "semantic-ui-react";
+import { closeModal } from '../redux/actions/modals.actions';
 import EntryForm from "./EntryForm";
 
 export default function ModalEdit({
@@ -10,6 +12,8 @@ export default function ModalEdit({
     setValue,
     isExpense,
     setIsExpense }) {
+
+    const dispatch = useDispatch();
 
     return (
         <Modal open={isOpen}>
@@ -24,7 +28,7 @@ export default function ModalEdit({
                     setIsExpense={setIsExpense} />
             </Modal.Content>
             <Modal.Actions>
-                <Button onClick={() => setIsOpen(false)}>Close</Button>
+                <Button onClick={() => dispatch(closeModal())}>Close</Button>
                 <Button
                     primary
                     onClick={() => setIsOpen(false)}

@@ -18,6 +18,7 @@ function App() {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
 
+  const isOpenRedux = useSelector(state => state.modals.isOpen);
   const entries = useSelector(state => state.entries);
 
   useEffect(() => {
@@ -54,11 +55,6 @@ function App() {
     setIsExpense(true);
   }
 
-  function deleteEntry(id) {
-    const res = entries.filter(entry => entry.id !== id);
-    // setEntries(res);
-  }
-
   function addEntry() {
     const res = entries.concat({ id: entries.length + 1, description, value, isExpense });
     // setEntries(res);
@@ -88,7 +84,7 @@ function App() {
 
       <MainHeader title="History" type="h3" />
 
-      <EntryLines entries={entries} deleteEntry={deleteEntry} editEntry={editEntry} />
+      <EntryLines entries={entries} editEntry={editEntry} />
 
       <MainHeader type="h3" title="Add New Transaction" />
       <NewEntryForm
@@ -101,7 +97,7 @@ function App() {
         setIsExpense={setIsExpense}
       />
       <ModalEdit
-        isOpen={isOpen}
+        isOpen={isOpenRedux}
         setIsOpen={setIsOpen}
         addEntry={addEntry}
         description={description}
