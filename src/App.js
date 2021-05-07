@@ -29,6 +29,7 @@ function App() {
       setEntries(newEntries);
       resentEntry();
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen])
 
   useEffect(() => {
@@ -36,17 +37,15 @@ function App() {
     let totalExpense = 0;
     entries.map(entry => {
       if (entry.isExpense) {
-        totalExpense += entry.value;
-        setExpense(totalExpense);
-      } else {
-        totalIncome += entry.value;
-        setIncome(totalIncome);
+        return totalExpense += Number(entry.value);
       }
+      return totalIncome += Number(entry.value);
     });
-    let total = totalIncome - totalExpense;
-    setTotal(total)
-    console.log(`total incomes: ${totalIncome} and total expenses: ${totalExpense}`);
-  }, [entries])
+    setIncome(totalIncome);
+    setExpense(totalExpense);
+    setTotal(totalIncome - totalExpense);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entries]);
 
   function resentEntry() {
     setDescription('');
@@ -60,7 +59,7 @@ function App() {
   }
 
   function addEntry() {
-    const res = entries.concat({ id: initialEntries.length + 1, description, value, isExpense });
+    const res = entries.concat({ id: entries.length + 1, description, value, isExpense });
     setEntries(res);
     resentEntry();
   }
