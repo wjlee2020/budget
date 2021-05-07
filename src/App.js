@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Container } from 'semantic-ui-react';
 import MainHeader from './components/MainHeader'
 import NewEntryForm from './components/NewEntryForm'
 import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances'
-import { initialEntries } from './seed/initialEntries';
 import EntryLines from './components/EntryLines';
 import ModalEdit from './components/ModalEdit';
 
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
   const [isExpense, setIsExpense] = useState(true);
@@ -19,6 +18,8 @@ function App() {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
 
+  const entries = useSelector(state => state.entries);
+
   useEffect(() => {
     if (!isOpen && entryId) {
       const index = entries.findIndex(entry => entry.id === entryId);
@@ -26,7 +27,7 @@ function App() {
       newEntries[index].description = description;
       newEntries[index].value = value;
       newEntries[index].isExpense = isExpense;
-      setEntries(newEntries);
+      // setEntries(newEntries);
       resentEntry();
     }
     //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -55,12 +56,12 @@ function App() {
 
   function deleteEntry(id) {
     const res = entries.filter(entry => entry.id !== id);
-    setEntries(res);
+    // setEntries(res);
   }
 
   function addEntry() {
     const res = entries.concat({ id: entries.length + 1, description, value, isExpense });
-    setEntries(res);
+    // setEntries(res);
     resentEntry();
   }
 

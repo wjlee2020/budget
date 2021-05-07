@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store/configureStore';
 import './index.css';
 import App from './App';
 import "semantic-ui-css/semantic.min.css"
-import { ContextProvider } from './Context';
 
 ReactDOM.render(
-  <ContextProvider>
+  <Provider store={store}>
     <App />
-  </ContextProvider>,
+  </Provider>,
   document.getElementById('root')
 );

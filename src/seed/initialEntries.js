@@ -7,7 +7,7 @@ export let initialEntries = [
     },
     {
         id: 2,
-        description: "water bill",
+        description: "オール電化",
         value: 20,
         isExpense: true
     },
