@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { removeEntryRedux } from '../redux/actions/entries.actions';
 import { openModal } from '../redux/actions/modals.actions';
 
-export default function EntryLine({ id, description, value, isExpense, editEntry }) {
+export default function EntryLine({ id, description, value, isExpense }) {
     const dispatch = useDispatch();
     return (
         <>

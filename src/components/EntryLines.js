@@ -1,7 +1,7 @@
 import { Container } from "semantic-ui-react";
 import EntryLine from "./EntryLine";
 
-export default function EntryLines({ entries, setIsOpen, editEntry }) {
+export default function EntryLines({ entries, setIsOpen }) {
     return (
         <Container>
             {entries.map((entry, index) => (
@@ -9,7 +9,6 @@ export default function EntryLines({ entries, setIsOpen, editEntry }) {
                     key={index}
                     {...entry}
                     setIsOpen={setIsOpen}
-                    editEntry={editEntry}
                 />
             ))}
         </Container>
