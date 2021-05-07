@@ -16,12 +16,15 @@ function App() {
 
   const { isOpen, id } = useSelector(state => state.modals);
   const entries = useSelector(state => state.entries);
+  // useSelector brings back each state inside our store as an object. 
+  // use dot notation to pick out which state we want to use.
+  // const blank = useSelector(state => state);
+  // console.log(blank);
 
   useEffect(() => {
     const index = entries.findIndex(entry => entry.id === id);
     setEntry(entries[index]);
-    console.log(entry);
-
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, id])
 
   useEffect(() => {
