@@ -1,7 +1,7 @@
 export let initialEntries = [
     {
         id: 1,
-        description: "Work income",
+        description: "Sales",
         value: 10000,
         isExpense: false
     },
