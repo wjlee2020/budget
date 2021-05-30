@@ -1,13 +1,13 @@
 export let initialEntries = [
     {
         id: 1,
-        description: "Sales",
+        description: "income",
         value: 10000,
         isExpense: false
     },
     {
         id: 2,
-        description: "オール電化",
+        description: "Electricity Bill",
         value: 20,
         isExpense: true
     },
@@ -15,12 +15,6 @@ export let initialEntries = [
         id: 3,
         description: "rent",
         value: 350,
-        isExpense: true
-    },
-    {
-        id: 4,
-        description: "electricity",
-        value: 100,
         isExpense: true
     }
 ]
