@@ -17,6 +17,12 @@ export default function useEntryDetails(desc = "", val = "", isExp = true) {
         setIsExpense(isExp);
     }, [desc, val, isExp])
 
+    function resetValues() {
+        setDescription('');
+        setValue('');
+        setIsExpense(true);
+    }
+
     function addEntry() {
         dispatch(addEntryRedux({
             id: uuidv4(),
@@ -24,9 +30,7 @@ export default function useEntryDetails(desc = "", val = "", isExp = true) {
             value,
             isExpense
         }));
-        setDescription('');
-        setValue('');
-        setIsExpense(true);
+        resetValues();
     }
 
     function editEntry(id) {
@@ -40,6 +44,7 @@ export default function useEntryDetails(desc = "", val = "", isExp = true) {
             }
         ))
         dispatch(closeModal());
+        resetValues();
     }
 
     return {
