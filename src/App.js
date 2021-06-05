@@ -18,6 +18,7 @@ function App() {
   const entries = useSelector(state => state.entries);
   // useSelector brings back each state inside our store as an object. 
   // use dot notation to pick out which state we want to use.
+  //check:
   // const blank = useSelector(state => state);
   // console.log(blank);
 
@@ -26,6 +27,7 @@ function App() {
     setEntry(entries[index]);
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, id])
+  // when isOpen, it sets the entry state into the index of the entries (from redux) of isOpen modal id
 
   useEffect(() => {
     let totalIncome = 0;

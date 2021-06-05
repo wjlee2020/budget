@@ -5,11 +5,12 @@ import { closeModal } from '../redux/actions/modals.actions';
 import EntryForm from "./EntryForm";
 
 export default function ModalEdit({ isOpen, description, value, isExpense, id }) {
+    // deconstructing the entries prop we sent in from App
 
     const dispatch = useDispatch();
     const entryUpdate = useEntryDetails(description, value, isExpense);
     // useEntryDetails is our custom hook. it gives us each returned value from the custom hook component
-    // we bring in description, value, isExpense to send it via props to EntryForm to hold the input values
+    // we set in the nec. params: description, value, isExpense to send it via props to EntryForm to hold the input values
     console.log(entryUpdate);
 
     return (

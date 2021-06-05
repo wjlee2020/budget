@@ -9,6 +9,8 @@ export default function useEntryDetails(desc = "", val = "", isExp = true) {
     const [value, setValue] = useState(val);
     const [isExpense, setIsExpense] = useState(isExp);
     const dispatch = useDispatch();
+
+    // run this effect when we change (edit), updating state that are sent via this custom hook
     useEffect(() => {
         setDescription(desc);
         setValue(val);
