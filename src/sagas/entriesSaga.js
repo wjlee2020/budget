@@ -7,6 +7,12 @@ async function fetchEntries() {
     return data;
 }
 
+async function fetchEntries() {
+    let response = await fetch("http://localhost:3001/values");
+    let data = await response.json();
+    return data;
+}
+
 export function* getAllEntries() {
     yield take(entriesTypes.GET_ENTRIES);
     // take: wait for specified message
