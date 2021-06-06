@@ -11,10 +11,11 @@ export default function entriesReducer(state = initialEntries, action) {
             const newEntries = state.filter(entry => entry.id !== action.payload)
             return newEntries
         }
+        case entriesTypes.POPULATE_ENTRY_DETAILS:
         case entriesTypes.EDIT_ENTRY: {
             const newEntries = [...state];
             const index = newEntries.findIndex(entry => entry.id === action.payload.id);
-            newEntries[index] = { ...action.payload.entry };
+            newEntries[index] = { ...newEntries[index], ...action.payload.entry };
             return newEntries;
         }
         case entriesTypes.POPULATE_ENTRIES: {
