@@ -44,6 +44,16 @@ function App() {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entries]);
 
+  async function fetchInitData() {
+    let resp = await fetch('http://localhost:3001/entries')
+    let data = await resp.json();
+    console.log(data);
+  }
+
+  useEffect(() => {
+    fetchInitData();
+  }, [])
+
   return (
     <Container>
       <MainHeader title="Budget" />

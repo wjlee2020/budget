@@ -1,12 +1,19 @@
+const types = {
+    OPEN_MODAL: "OPEN_MODAL",
+    CLOSE_MODAL: "CLOSE_MODAL"
+}
+
+export default types;
+
 export function openModal(id) {
     return {
-        type: "OPEN_MODAL",
+        type: types.OPEN_MODAL,
         payload: { id }
     }
 }
 
 export function closeModal() {
     return {
-        type: "CLOSE_MODAL"
+        type: types.CLOSE_MODAL
     }
 }
