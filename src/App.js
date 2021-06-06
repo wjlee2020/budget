@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container } from 'semantic-ui-react';
 import MainHeader from './components/MainHeader'
 import NewEntryForm from './components/NewEntryForm'
@@ -7,6 +7,7 @@ import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances'
 import EntryLines from './components/EntryLines';
 import ModalEdit from './components/ModalEdit';
+import { getAllEntriesRedux } from './redux/actions/entries.actions'
 
 function App() {
   const [total, setTotal] = useState(0);
@@ -14,6 +15,7 @@ function App() {
   const [expense, setExpense] = useState(0);
   const [entry, setEntry] = useState();
 
+  const dispatch = useDispatch();
   const { isOpen, id } = useSelector(state => state.modals);
   const entries = useSelector(state => state.entries);
   // useSelector brings back each state inside our store as an object. 
@@ -44,14 +46,8 @@ function App() {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entries]);
 
-  async function fetchInitData() {
-    let resp = await fetch('http://localhost:3001/entries')
-    let data = await resp.json();
-    console.log(data);
-  }
-
   useEffect(() => {
-    fetchInitData();
+    dispatch(getAllEntriesRedux());
   }, [])
 
   return (

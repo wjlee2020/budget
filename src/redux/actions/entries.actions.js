@@ -1,7 +1,8 @@
 const types = {
     ADD_ENTRY: "ADD_ENTRY",
     REMOVE_ENTRY: "REMOVE_ENTRY",
-    EDIT_ENTRY: "EDIT_ENTRY"
+    EDIT_ENTRY: "EDIT_ENTRY",
+    GET_ENTRIES: "GET_ENTRIES"
 }
 
 export default types;
@@ -24,5 +25,12 @@ export function editEntryRedux(id, entry) {
     return {
         type: types.EDIT_ENTRY,
         payload: { id, entry }
+    }
+
+}
+
+export function getAllEntriesRedux() {
+    return {
+        type: types.GET_ENTRIES
     }
 }
