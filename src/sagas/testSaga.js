@@ -24,7 +24,7 @@ export function* testSaga() {
 // export function* testSagaFork() {
 //     while (true) {
 //         yield take("TEST_MESSAGE_2")
-//      fork: non-blocking, following fn won't wait for fork to finish
+//      fork: non-blocking, following fn won't wait for fork to finish (call waits for the result)
 //         yield fork(doNothing);
 //         yield fork(doNothing);
 //         yield fork(doNothing);
