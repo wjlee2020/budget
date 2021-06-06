@@ -3,6 +3,7 @@ import { call, delay, put, take } from 'redux-saga/effects'
 export function* testSaga() {
     while (true) {
         console.log('Starting the saga');
+        // take wait for specified message
         yield take('TEST_MESSAGE');
         const a = yield call(double, 3);
         console.log(a)

@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getAllEntriesRedux());
-  }, [])
+  })
 
   return (
     <Container>
