@@ -17,6 +17,9 @@ export default function entriesReducer(state = initialEntries, action) {
             newEntries[index] = { ...action.payload.entry };
             return newEntries;
         }
+        case entriesTypes.POPULATE_ENTRIES: {
+            return action.payload
+        }
         default:
             return state;
     }
