@@ -5,7 +5,8 @@ import { openModal } from '../redux/actions/modals.actions';
 
 export default function EntryLine({ id, description, value, isExpense }) {
     const dispatch = useDispatch();
-    
+    dispatch({ type: "TEST_MESSAGE" })
+
     return (
         <>
             <Segment color={isExpense ? "red" : "green"}>

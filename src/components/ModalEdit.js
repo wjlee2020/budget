@@ -11,7 +11,7 @@ export default function ModalEdit({ isOpen, description, value, isExpense, id })
     const entryUpdate = useEntryDetails(description, value, isExpense);
     // useEntryDetails is our custom hook. it gives us each returned value from the custom hook component
     // we set in the nec. params: description, value, isExpense to send it via props to EntryForm to hold the input values
-    console.log(entryUpdate);
+    // console.log(entryUpdate);
 
     return (
         <Modal open={isOpen}>
