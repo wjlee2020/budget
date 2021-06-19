@@ -1,15 +1,15 @@
 {
   "entries": [
     {
-      "id": 1,
+      "id": "f0707c75-ec08-428f-b933-b3ee80c79f6d",
       "description": "Income"
     }
   ],
   "values": [
     {
-      "id": 1,
-      "value": 2400,
-      "isExpense": false
+      "id": "f0707c75-ec08-428f-b933-b3ee80c79f6d",
+      "isExpense": true,
+      "value": "2450"
     }
   ]
 }
