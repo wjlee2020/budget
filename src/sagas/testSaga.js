@@ -38,7 +38,8 @@ export function* testSagaTakeEveryProcess({ payload = 1 }) {
 }
 
 export function* testSagaTakeEvery() {
-    // takeEvery: getting many index, and if need to fetch each index use takeEvery
+    // takeEvery: getting many index, and if need to fetch each index use takeEvery. 
+    // takeEvery runs the second param function once dispatched| check console for both start/end
     const { payload } = yield takeEvery("TEST_MESSAGE_3", testSagaTakeEveryProcess);
     console.log("Finished TakeEvery for index" + " " + payload)
 }
