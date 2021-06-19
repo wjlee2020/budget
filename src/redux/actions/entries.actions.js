@@ -37,7 +37,7 @@ export function getAllEntriesRedux() {
     }
 }
 
-export function populateEntries(entries) {
+export function populateEntriesRedux(entries) {
     return {
         type: types.POPULATE_ENTRIES,
         payload: entries
