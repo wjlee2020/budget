@@ -1,5 +1,5 @@
 import axios from "axios";
-import { call, put, take, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import entriesTypes from '../redux/actions/entries.actions';
 
 export function* addEntrySaga() {

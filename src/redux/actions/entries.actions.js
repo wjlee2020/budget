@@ -21,7 +21,7 @@ export const addEntryRedux = (payload) => {
 export const removeEntryRedux = (id) => {
     return {
         type: types.REMOVE_ENTRY,
-        payload: id
+        payload: { id }
     }
 }
 

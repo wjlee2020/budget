@@ -9,7 +9,7 @@ export default function entriesReducer(state = initialEntries, action) {
         }
 
         case entriesTypes.REMOVE_ENTRY_RESULT: {
-            const newEntries = state.filter(entry => entry.id !== action.payload)
+            const newEntries = state.filter((entry) => entry.id !== action.payload)
             return newEntries
         }
 
