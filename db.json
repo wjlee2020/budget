@@ -3,14 +3,6 @@
     {
       "id": 1,
       "description": "Income"
-    },
-    {
-      "id": 2,
-      "description": "Electricity Bill"
-    },
-    {
-      "id": 3,
-      "description": "Water Bill"
     }
   ],
   "values": [
@@ -18,16 +10,6 @@
       "id": 1,
       "value": 2400,
       "isExpense": false
-    },
-    {
-      "id": 2,
-      "value": 34,
-      "isExpense": true
-    },
-    {
-      "id": 3,
-      "value": 15,
-      "isExpense": true
     }
   ]
 }
