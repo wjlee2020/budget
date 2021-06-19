@@ -20,7 +20,7 @@ export function* getAllEntries() {
     // yield put({ type: entriesTypes.POPULATE_ENTRIES, payload: response });
 }
 
-//getting values/descriptions
+//getting values/descriptions, using fetch api
 // export function* entryValueDetails(id) {
 //     fetch(`http://localhost:3001/values/${id}`)
 //         .then(response => response.json())

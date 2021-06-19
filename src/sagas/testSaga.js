@@ -62,7 +62,8 @@ function* infinitiySaga() {
             console.log('The fork was cancelled? ', yield cancelled());
         }
     }
-    console.log(`end infinite saga`);
+    // won't reach this console.log since cancelled returns true, and takeLatest starts it again
+    // console.log(`end infinite saga`);
 }
 
 export function* testSagaCancelled() {
