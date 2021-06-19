@@ -1,6 +1,8 @@
 // test sagas
 
-import { call, delay, fork, put, take, takeEvery } from 'redux-saga/effects'
+import { call, cancel, cancelled, delay, fork, put, take, takeEvery } from 'redux-saga/effects'
+
+// every exported generator functions will go to the index.js initSaga and run
 
 export function* testSaga() {
     while (true) {
@@ -44,13 +46,40 @@ export function* testSagaTakeEvery() {
     console.log("Finished TakeEvery for index" + " " + payload)
 }
 
+function* infinitiySaga() {
+    console.log(`start infinite saga`);
+    while (true) {
+        try {
+            console.log(`inside infinite saga loop`);
+            yield delay(500);
+        } catch (e) {
+            console.error(`error: ${e}`);
+        } finally {
+            // instructs saga to return whether true or not (cancelled or not)
+            //then you could use if(canclled), and run execute only on cancellation
+            console.log('The fork was cancelled? ', yield cancelled());
+        }
+    }
+    console.log(`end infinite saga`);
+}
+
+export function* testSagaCancelled() {
+    yield take("TEST_MESSAGE_4");
+    const handleCancel = yield fork(infinitiySaga);
+    yield delay(3000);
+    // cancel will cancel the forked infinitySaga function after amount of delay
+    yield cancel(handleCancel);
+}
+
 export function* dispatchTest() {
     let index = 1;
-    while (true) {
-        yield delay(500);
-        yield put({ type: "TEST_MESSAGE_3", payload: index })
-        index++;
-    }
+    yield put({ type: "TEST_MESSAGE_4", payload: index })
+    // while (true) {
+    //     yield delay(500);
+    //     //dispatch the type 
+    //     yield put({ type: "TEST_MESSAGE_4", payload: index })
+    //     index++;
+    // }
 }
 
 function double(num) {
