@@ -4,26 +4,28 @@ const types = {
     EDIT_ENTRY: "EDIT_ENTRY",
     GET_ENTRIES: "GET_ENTRIES",
     POPULATE_ENTRIES: "POPULATE_ENTRIES",
-    POPULATE_ENTRY_DETAILS: "POPULATE_ENTRY_DETAILS"
+    POPULATE_ENTRY_DETAILS: "POPULATE_ENTRY_DETAILS",
+    REMOVE_ENTRY_RESULT: "REMOVE_ENTRY_RESULT",
+    ADD_ENTRY_RESULT: "ADD_ENTRY_RESULT"
 }
 
 export default types;
 
-export function addEntryRedux(payload) {
+export const addEntryRedux = (payload) => {
     return {
         type: types.ADD_ENTRY,
         payload
     }
 }
 
-export function removeEntryRedux(id) {
+export const removeEntryRedux = (id) => {
     return {
         type: types.REMOVE_ENTRY,
         payload: id
     }
 }
 
-export function editEntryRedux(id, entry) {
+export const editEntryRedux = (id, entry) => {
     return {
         type: types.EDIT_ENTRY,
         payload: { id, entry }
@@ -31,20 +33,20 @@ export function editEntryRedux(id, entry) {
 
 }
 
-export function getAllEntriesRedux() {
+export const getAllEntriesRedux = () => {
     return {
         type: types.GET_ENTRIES
     }
 }
 
-export function populateEntriesRedux(entries) {
+export const populateEntriesRedux = (entries) => {
     return {
         type: types.POPULATE_ENTRIES,
         payload: entries
     }
 }
 
-export function populateEntryDetailsRedux(id, entry) {
+export const populateEntryDetailsRedux = (id, entry) => {
     return {
         type: types.POPULATE_ENTRY_DETAILS,
         payload: { id, entry }
