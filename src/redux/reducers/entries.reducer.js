@@ -5,11 +5,13 @@ export default function entriesReducer(state = initialEntries, action) {
     switch (action.type) {
         case entriesTypes.ADD_ENTRY_RESULT: {
             const newEntries = state.concat({ ...action.payload })
+            console.log(newEntries)
             return newEntries;
         }
 
         case entriesTypes.REMOVE_ENTRY_RESULT: {
-            const newEntries = state.filter((entry) => entry.id !== action.payload)
+            const newEntries = state.filter((entry) => entry.id !== action.payload.id);
+            console.log(newEntries);
             return newEntries
         }
 

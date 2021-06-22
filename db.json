@@ -1,15 +1,4 @@
 {
-  "entries": [
-    {
-      "id": "f0707c75-ec08-428f-b933-b3ee80c79f6d",
-      "description": "Income"
-    }
-  ],
-  "values": [
-    {
-      "id": "f0707c75-ec08-428f-b933-b3ee80c79f6d",
-      "isExpense": true,
-      "value": "2450"
-    }
-  ]
+  "entries": [],
+  "values": []
 }

@@ -6,7 +6,7 @@ export function* deleteEntrySaga() {
     while (true) {
         const { payload } = yield take(entriesTypes.REMOVE_ENTRY);
         yield call(deleteEntry, payload.id);
-        yield put({ type: 'REMOVE_ENTRY_RESULT', payload: { id: payload.id } });
+        yield put({ type: entriesTypes.REMOVE_ENTRY_RESULT, payload: { id: payload.id } });
     }
 }
 
